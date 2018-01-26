@@ -40,15 +40,17 @@
 			CGPROGRAM
 
 			#pragma target 3.0
-
-			#pragma shader_feature _METALLIC_MAP
-			#pragma shader_feature _ _SMOOTHNESS_ALBEDO _SMOOTHNESS_METALLIC
-			#pragma shader_feature _OCCLUSION_MAP
+			//定义一个着色器 .区别在于着色器特征的排列只在需要时编译，如果没有材质使用某个关键字，那么关于此关键字的着色器变体将不会被编译。
+			//Unity也会检查哪些关键字用在构建项目阶段，只会包含必需的着色器变体。
+			#pragma shader_feature _METALLIC_MAP 
+			#pragma shader_feature _SMOOTHNESS_ALBEDO _SMOOTHNESS_METALLIC
+			#pragma shader_feature _OCCLUSION_MAP  
 			#pragma shader_feature _EMISSION_MAP
 			#pragma shader_feature _DETAIL_MASK
-
-			#pragma multi_compile _ SHADOWS_SCREEN
-			#pragma multi_compile _ VERTEXLIGHT_ON
+			// unity 多重程序变体，着色器变体。
+			// 当使用很多关键字时，编译所有的排列会花费很多时间，所有这些变体都包含在构建项目中，这可能是不必要的
+			#pragma multi_compile _SHADOWS_SCREEN  
+			#pragma multi_compile _VERTEXLIGHT_ON  
 
 			#pragma vertex MyVertexProgram
 			#pragma fragment MyFragmentProgram
@@ -62,7 +64,7 @@
 
 		Pass {
 			Tags {
-				"LightMode" = "ForwardAdd"
+				"LightMode" = "ForwardAdd"  //第二个通道用来渲染额外的光源
 			}
 
 			Blend One One
@@ -105,6 +107,6 @@
 			ENDCG
 		}
 	}
-
+	//自定义GUI
 	CustomEditor "MyLightingShaderGUI"
 }

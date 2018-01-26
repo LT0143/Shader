@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
+/// <summary>
+/// 编辑器类，放到Editor文件夹下
+/// </summary>
 public class MyLightingShaderGUI : ShaderGUI {
 
+    /// <summary>
+    /// 下拉选框
+    /// </summary>
 	enum SmoothnessSource {
 		Uniform, Albedo, Metallic
 	}
@@ -17,6 +23,11 @@ public class MyLightingShaderGUI : ShaderGUI {
 	MaterialEditor editor;
 	MaterialProperty[] properties;
 
+    /// <summary>
+    /// 重写OnGUI
+    /// </summary>
+    /// <param name="editor">管理当前被选材质的监视器</param>
+    /// <param name="properties">包含材质属性的数组</param>
 	public override void OnGUI (
 		MaterialEditor editor, MaterialProperty[] properties
 	) {
@@ -29,8 +40,8 @@ public class MyLightingShaderGUI : ShaderGUI {
 
 	void DoMain () {
 		GUILayout.Label("Main Maps", EditorStyles.boldLabel);
-
-		MaterialProperty mainTex = FindProperty("_MainTex");
+        //主要纹理，它的属性在属性数组的某一位置设置，它的数组下标取决于我们着色器中定义属性的顺序
+        MaterialProperty mainTex = FindProperty("_MainTex");
 		editor.TexturePropertySingleLine(
 			MakeLabel(mainTex, "Albedo (RGB)"), mainTex, FindProperty("_Tint")
 		);
@@ -153,6 +164,12 @@ public class MyLightingShaderGUI : ShaderGUI {
 		return staticLabel;
 	}
 
+    /// <summary>
+    /// 定义标签的内容，通过GUIContent实现，它是一个简单的容器类
+    /// </summary>
+    /// <param name="property"></param>
+    /// <param name="tooltip"></param>
+    /// <returns></returns>
 	static GUIContent MakeLabel (
 		MaterialProperty property, string tooltip = null
 	) {

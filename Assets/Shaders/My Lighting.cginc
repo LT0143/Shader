@@ -1,6 +1,13 @@
-﻿#if !defined(MY_LIGHTING_INCLUDED)
+﻿
+//定义代码集合。
+//我们可以把我们的导入文件的全部内容放在一个预处理器if块中。条件是MY_LIGHTING_INCLUDED尚未定义。
+//if块用预处理器检查是否已经做了某个定义，这个定义仅仅是与导入文件名称相对应的唯一标识符.
+#if !defined(MY_LIGHTING_INCLUDED)
 #define MY_LIGHTING_INCLUDED
-//定义代码集合
+
+//这些文件的内容被有效地复制到你自己的文件中，替换了导入指令。
+//这个过程发生在预处理步骤的期间，预处理步骤会执行所有的预处理指示。
+//这些指令都是以哈希开头的语句，例如#include和#pragma。在预处理步骤完成之后，着色器代码被再次处理，并且被实际编译。
 #include "UnityPBSLighting.cginc"
 #include "AutoLight.cginc"
 
