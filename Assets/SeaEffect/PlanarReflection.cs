@@ -23,7 +23,7 @@ public class PlanarReflection : MonoBehaviour
     // reflection，需要映照的层
     public LayerMask reflectionMask;
     public bool reflectSkybox = false;
-    public Color clearColor = Color.grey;
+    public Color clearColor = Color.grey; //反射相机背景色为灰色
     public System.String reflectionSampler = "_ReflectionTex";
 
     // height 倒影偏移
@@ -41,6 +41,7 @@ public class PlanarReflection : MonoBehaviour
         sharedMaterial = ((WaterBase)gameObject.GetComponent(typeof(WaterBase))).sharedMaterial;
     }
 
+	//创建反射相机
     private Camera CreateReflectionCameraFor(Camera cam)
     {
         System.String reflName = gameObject.name + "Reflection" + cam.name;
@@ -109,6 +110,7 @@ public class PlanarReflection : MonoBehaviour
             helperCameras.Clear();
     }
 
+	//水边缘，当可见时被渲染
     public void WaterTileBeingRendered(Transform tr, Camera currentCam)
     {
         RenderHelpCameras(currentCam);

@@ -14,11 +14,12 @@ public class WaterTile : MonoBehaviour
 		AcquireComponents();
 	}
 	
+	///获取组件
 	private void AcquireComponents() 
 	{
 		if (!reflection) {
 			if (transform.parent)
-				reflection = (PlanarReflection)transform.parent.GetComponent<PlanarReflection>();
+				reflection = (PlanarReflection)transform.parent.GetComponent<PlanarReflection>();//平面反射
 			else
 				reflection = (PlanarReflection)transform.GetComponent<PlanarReflection>();	
 		}
