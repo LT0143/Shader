@@ -98,9 +98,13 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\Chapter10\RenderCubemapWizard.cs" />
     <Compile Include="Assets\Editor\Chapter3\CustomShaderGUI.cs" />
+    <Compile Include="Assets\Editor\MeshSaverEditor.cs" />
     <Compile Include="Assets\Editor\SetProperty\SetPropertyDrawer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\SeaEffect\FX-SimpleWater4.shader" />
+    <None Include="Assets\SeaEffect\PointColor.shader" />
+    <None Include="Assets\SeaEffect\WaterInclude.cginc" />
     <None Include="Assets\Shaders\Chapter10\Chapter10-Fresnel.shader" />
     <None Include="Assets\Shaders\Chapter10\Chapter10-GlassRefraction.shader" />
     <None Include="Assets\Shaders\Chapter10\Chapter10-Mirror.shader" />

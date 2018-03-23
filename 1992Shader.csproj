@@ -80,8 +80,14 @@
     <Compile Include="Assets\Scripts\Helpers\Rotating.cs" />
     <Compile Include="Assets\Scripts\Helpers\SetPropertyAttribute.cs" />
     <Compile Include="Assets\Scripts\Helpers\Translating.cs" />
+    <Compile Include="Assets\SeaEffect\PlanarReflection.cs" />
+    <Compile Include="Assets\SeaEffect\WaterBase.cs" />
+    <Compile Include="Assets\SeaEffect\WaterTile.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\SeaEffect\FX-SimpleWater4.shader" />
+    <None Include="Assets\SeaEffect\PointColor.shader" />
+    <None Include="Assets\SeaEffect\WaterInclude.cginc" />
     <None Include="Assets\Shaders\Chapter10\Chapter10-Fresnel.shader" />
     <None Include="Assets\Shaders\Chapter10\Chapter10-GlassRefraction.shader" />
     <None Include="Assets\Shaders\Chapter10\Chapter10-Mirror.shader" />
